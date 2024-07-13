@@ -8,7 +8,10 @@ const main = async() => {
         app.listen(PORT)
         console.log("Server listening on port", PORT)
     } catch (error) {
-        console.log(error)
+        if (error instanceof Error) {
+            console.log(error)
+        }
+       
     }
 };
 
