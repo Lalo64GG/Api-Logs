@@ -10,6 +10,7 @@ export const appDataSources = new DataSource({
     password: process.env.PASSWORD,
     database: "records",
     entities: [Record, Table],
+    logging: true,
     synchronize: true,
     ssl: {
         rejectUnauthorized: false,
