@@ -1,9 +1,11 @@
 import { Request, Response } from "express";
 import RecordService from "../services/Record.service";
+import { publishToMqtt } from "../helper/Publisher";
 
 export const createRecord = async (req: Request, res: Response) => {
   try {
     const record = await RecordService.create(req.body);
+    if (record) publishToMqtt(record);
     return res.status(201).json(record);
   } catch (error) {
     if (error instanceof Error)
@@ -49,7 +51,7 @@ export const updateRecord = async (req: Request, res: Response) => {
       return res.status(404).json({ message: "Record not found" });
     }
 
-    return res.status(200).json(record);
+    return res.status(204);
   } catch (error) {
     if (error instanceof Error)
       return res.status(500).json({ message: error.message });
