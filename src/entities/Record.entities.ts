@@ -13,9 +13,9 @@ export class Record extends BaseEntity {
     id: string;
 
     @Column({
-        default: 'default_value'
+        default: 0
     })
-    temperature: string;
+    temperature: Number;
 
     @Column()
     humedity: string;
