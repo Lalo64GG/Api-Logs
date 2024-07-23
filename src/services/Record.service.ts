@@ -16,7 +16,7 @@ const create = async ({
   try {
     const record = new Record();
 
-    record.temperature = temperature;
+    record.temperature = parseInt(temperature);
     record.humedity = humedity;
     record.gas_level = gas_level;
     record.light = light;
@@ -76,7 +76,7 @@ const update = async (
       throw new Error("Record not found");
     }
 
-    record.temperature = temperature;
+    record.temperature = parseInt(temperature);
     record.humedity = humedity;
     record.gas_level = gas_level;
     record.light = light;
