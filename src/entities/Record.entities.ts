@@ -12,7 +12,9 @@ export class Record extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column()
+    @Column({
+        default: 'default_value'
+    })
     temperature: string;
 
     @Column()
@@ -27,5 +29,5 @@ export class Record extends BaseEntity {
     light: boolean;
 
     @CreateDateColumn()
-    createdAt: Date;
+    createdat: Date;
 }

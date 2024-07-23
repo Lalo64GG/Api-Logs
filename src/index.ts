@@ -14,12 +14,12 @@ const main = async () => {
 
         const PORT = process.env.PORT || 5000;
 
-        const httpsOptions = {
-            key: fs.readFileSync(path.join(__dirname, '../../../../etc/nginx/ssl/nginx-selfsigned.key')),
-            cert: fs.readFileSync(path.join(__dirname, '../../../../etc/nginx/ssl/nginx-selfsigned.crt'))
-        };
+        // const httpsOptions = {
+        //     key: fs.readFileSync(path.join(__dirname, '../../../../etc/nginx/ssl/nginx-selfsigned.key')),
+        //     cert: fs.readFileSync(path.join(__dirname, '../../../../etc/nginx/ssl/nginx-selfsigned.crt'))
+        // };
 
-        https.createServer(httpsOptions, app).listen(PORT, () => {
+       app.listen(PORT, () => {
             console.log(`Server listening on port ${PORT}`);
         });
     } catch (error) {
