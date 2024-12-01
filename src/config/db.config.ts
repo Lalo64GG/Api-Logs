@@ -8,11 +8,9 @@ export const appDataSources = new DataSource({
     port: 5432,
     username: process.env.USER,
     password: process.env.PASSWORD,
-    database: "records",
+    database: "logs",
     entities: [Record, Table],
+    migrations: [__dirname + "/migrations/*.ts"],  // Ruta a las migraciones
     logging: true,
     synchronize: true,
-    ssl: {
-        rejectUnauthorized: false,
-    },
 });
